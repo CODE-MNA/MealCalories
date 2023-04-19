@@ -14,11 +14,25 @@
         android:theme="@style/Theme.MealCalories"
         tools:targetApi="31">
         <activity
-            android:name=".main.MainActivity"
+            android:name=".FoodSearch"
+            android:exported="false" />
+        <activity
+            android:name=".FoodList"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
