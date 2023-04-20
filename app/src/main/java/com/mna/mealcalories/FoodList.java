@@ -25,7 +25,6 @@ public class FoodList extends AppCompatActivity {
     String which_meal;
     TextView txt_food1;
     TextView txt_cal1;
-    DatabaseHelper databaseHelper;
 
     ArrayList<String> today_food, today_calory;
 

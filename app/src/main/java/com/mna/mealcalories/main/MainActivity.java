@@ -3,6 +3,7 @@ package com.mna.mealcalories.main;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_snack;
     TextView txt_cal_snack;
     String today;
+    int breakfast_cal_sum = 0;
+    int lunch_cal_sum = 0;
+    int dinner_cal_sum = 0;
+    int snack_cal_sum = 0;
 
 //    public String tempMsg;
     @Override
@@ -43,8 +48,46 @@ public class MainActivity extends AppCompatActivity {
 
         today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
-        //txt_cal_breakfast.setText();
-        //getAllData_today_breakfast
+        Cursor cursor_b = ((DatabaseHelper) getApplication()).getAllData_today_breakfast();
+        if (cursor_b.getCount() == 0) {
+            txt_cal_breakfast.setText("0");
+        } else {
+            while (cursor_b.moveToNext()) {
+                breakfast_cal_sum += cursor_b.getInt(1);
+            }
+            txt_cal_breakfast.setText(String.valueOf(breakfast_cal_sum));
+        }
+
+        Cursor cursor_l = ((DatabaseHelper) getApplication()).getAllData_today_lunch();
+        if (cursor_l.getCount() == 0) {
+            txt_cal_lunch.setText("0");
+        } else {
+            while (cursor_l.moveToNext()) {
+                lunch_cal_sum += cursor_l.getInt(1);
+            }
+            txt_cal_lunch.setText(String.valueOf(lunch_cal_sum));
+        }
+
+        Cursor cursor_d = ((DatabaseHelper) getApplication()).getAllData_today_dinner();
+        if (cursor_d.getCount() == 0) {
+            txt_cal_dinner.setText("0");
+        } else {
+            while (cursor_d.moveToNext()) {
+                dinner_cal_sum += cursor_d.getInt(1);
+            }
+            txt_cal_dinner.setText(String.valueOf(dinner_cal_sum));
+        }
+
+        Cursor cursor_s = ((DatabaseHelper) getApplication()).getAllData_today_snack();
+        if (cursor_s.getCount() == 0) {
+            txt_cal_snack.setText("0");
+        } else {
+            while (cursor_s.moveToNext()) {
+                snack_cal_sum += cursor_s.getInt(1);
+            }
+            txt_cal_snack.setText(String.valueOf(snack_cal_sum));
+        }
+
 
     }
 
@@ -66,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
         if(v == txt_dinner || v == txt_cal_dinner){
             Intent foodListIntent = new Intent(this, FoodList.class);
             foodListIntent.putExtra("which_meal", "dinner");
+
             startActivity(foodListIntent);
         }
 
         if(v == txt_snack || v == txt_cal_snack){
             Intent foodListIntent = new Intent(this, FoodList.class);
-            foodListIntent.putExtra("which_meal", "snack");
-            startActivity(foodListIntent);
+            foodListIntent.putExtra("which_meal", "snack");startActivity(foodListIntent);
         }
 
 
