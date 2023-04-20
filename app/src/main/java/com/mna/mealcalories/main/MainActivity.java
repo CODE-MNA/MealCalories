@@ -24,6 +24,7 @@ import com.mna.mealcalories.CameraActivity;
 import com.mna.mealcalories.DatabaseHelper;
 import com.mna.mealcalories.FoodList;
 import com.mna.mealcalories.R;
+import com.mna.mealcalories.SettingsActivity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -168,8 +169,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent cameraIntend = new Intent(this, CameraActivity.class);
                 startActivity(cameraIntend);
                 return true;
-            case R.id.item2:
+            case R.id.item_setting:
                 Toast.makeText(this, "Item2 is selected", Toast.LENGTH_SHORT).show();
+                Intent settingIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingIntent);
                 return true;
             case R.id.item3:
                 Toast.makeText(this, "Item3 is selected", Toast.LENGTH_SHORT).show();
