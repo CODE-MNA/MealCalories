@@ -24,8 +24,6 @@ import java.util.List;
 
 public class FoodList extends AppCompatActivity {
 
-
-
     TextView textView;
     ImageButton btn_addFood;
     ImageButton btn_home;
@@ -34,10 +32,6 @@ public class FoodList extends AppCompatActivity {
     String which_meal;
     TextView txt_food;
     TextView txt_cal;
-
-
-//    ArrayList<String> today_food, today_calory;
-
 
     private RecyclerView recyclerView;
     private ArrayList<Food> foodList;
@@ -50,14 +44,9 @@ public class FoodList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         foodList = new ArrayList<>();
 
-<<<<<<< HEAD
-=======
         ItemTouchHelper itemTouchHelper =new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
-
-
->>>>>>> c340a77b124472c4809f3b6e2480dfd6969086b6
         recyclerAdapter adapter = new recyclerAdapter(foodList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -77,22 +66,14 @@ public class FoodList extends AppCompatActivity {
 
         today = intent.getStringExtra("today");
 
-//        today_food = new ArrayList<>();
-//        today_calory = new ArrayList<>();
-
-
         if(which_meal.equals("breakfast")) {
             Cursor cursor = ((DatabaseHelper) getApplication()).getAllData_today_breakfast();
             if (cursor.getCount() == 0) {
                 txt_food.setText("No data");
             } else {
                 while (cursor.moveToNext()) {
-//                    today_food.add(cursor.getString(0));
-//                    today_calory.add(Integer.toString(cursor.getInt(1)));
                     foodList.add(new Food(cursor.getString(0), cursor.getInt(1)));
                 }
-//                txt_food.setText(today_food.get(0));
-//                txt_cal.setText(today_calory.get(0)+"cal");
             }
         }
         if(which_meal.equals("lunch")) {
@@ -101,14 +82,8 @@ public class FoodList extends AppCompatActivity {
                 txt_food.setText("No data");
             } else {
                 while (cursor.moveToNext()) {
-//                    today_food.add(cursor.getString(0));
-//                    today_calory.add(Integer.toString(cursor.getInt(1)));
                     foodList.add(new Food(cursor.getString(0), cursor.getInt(1)));
-
                 }
-//                txt_food.setText(today_food.get(0));
-//                txt_cal.setText(today_calory.get(0)+"cal");
-
             }
         }
         if(which_meal.equals("dinner")) {
@@ -118,12 +93,7 @@ public class FoodList extends AppCompatActivity {
             } else {
                 while (cursor.moveToNext()) {
                     foodList.add(new Food(cursor.getString(0), cursor.getInt(1)));
-
-//                    today_food.add(cursor.getString(0));
-//                    today_calory.add(Integer.toString(cursor.getInt(1)));
                 }
-//                txt_food.setText(today_food.get(0));
-//                txt_cal.setText(today_calory.get(0)+"cal");
             }
         }
         if(which_meal.equals("snack")) {
@@ -133,23 +103,16 @@ public class FoodList extends AppCompatActivity {
             } else {
                 while (cursor.moveToNext()) {
                     foodList.add(new Food(cursor.getString(0), cursor.getInt(1)));
-
-//                    today_food.add(cursor.getString(0));
-//                    today_calory.add(Integer.toString(cursor.getInt(1)));
                 }
-//                txt_food.setText(today_food.get(0));
-//                txt_cal.setText(today_calory.get(0)+"cal");
             }
         }
     }
-
 
     public void click_addFoodBtn(View v){
         if(v == btn_addFood){
             Intent foodSearchIntent = new Intent(this, FoodSearch.class);
             foodSearchIntent.putExtra("today", today);
             foodSearchIntent.putExtra("which_meal", which_meal);
-
             startActivity(foodSearchIntent);
         }
     }
@@ -194,14 +157,11 @@ public class FoodList extends AppCompatActivity {
 
             Collections.swap(foodList,fromPosition,toPosition);
             recyclerView.getAdapter().notifyItemMoved(fromPosition,toPosition);
-            //recyclerView.swapAdapter(foodList,fromPosition,toPosition);
             return false;
         }
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
         }
     };
-
 }
