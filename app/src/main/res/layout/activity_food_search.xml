@@ -7,12 +7,123 @@
     tools:context=".FoodSearch">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_foodSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Food Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092" />
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="480dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <LinearLayout
+            android:id="@+id/egg_line"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:onClick="click_egg_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.994">
+
+            <TextView
+                android:id="@+id/txt_egg"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="Egg"
+                android:gravity="center|left" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txt_cal_egg"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="70 cals"
+                android:layout_gravity="right"
+                android:gravity="center|right"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/milk_line"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:onClick="click_milk_line"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.994">
+
+            <TextView
+                android:id="@+id/txt_milk"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:gravity="center|left"
+                android:text="Milk" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txt_cal_milk"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="149 cals"
+                android:gravity="center|right"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/whiteBread_line"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/border"
+            android:onClick="click_whiteBread_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.994">
+
+            <TextView
+                android:id="@+id/txt_whiteBread"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:gravity="center|left"
+                android:text="White bread" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txt_cal_whiteBread"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="75 cals"
+                android:gravity="center|right"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
