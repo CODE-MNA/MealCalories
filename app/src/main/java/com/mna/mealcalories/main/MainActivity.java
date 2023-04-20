@@ -1,12 +1,17 @@
 package com.mna.mealcalories.main;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mna.mealcalories.DatabaseHelper;
 import com.mna.mealcalories.FoodList;
@@ -121,14 +126,32 @@ public class MainActivity extends AppCompatActivity {
             foodListIntent.putExtra("which_meal", "snack");startActivity(foodListIntent);
         }
 
-
     }
 
-    public String ClickLunch(View v){
-
-        return "Lunch";
+    // menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.calrory_menu, menu);
+        return true;
     }
 
-
-
+    // menu _ item selected
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item_camera:
+                Toast.makeText(this, "Item1 is selected", Toast.LENGTH_SHORT).show();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                return true;
+            case R.id.item2:
+                Toast.makeText(this, "Item2 is selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item3:
+                Toast.makeText(this, "Item3 is selected", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
