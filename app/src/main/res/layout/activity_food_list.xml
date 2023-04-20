@@ -22,8 +22,8 @@
         app:layout_constraintVertical_bias="0.042" />
 
 
-
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="415dp"
         android:layout_height="428dp"
         android:background="#212121"
@@ -99,5 +99,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975"
         app:srcCompat="@drawable/ic_add_green_80" />
+
+    <ImageButton
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:onClick="click_deleteBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974"
+        app:srcCompat="@drawable/ic_delete_green_90" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

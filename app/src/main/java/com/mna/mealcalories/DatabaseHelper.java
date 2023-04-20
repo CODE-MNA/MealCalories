@@ -94,16 +94,33 @@ public class DatabaseHelper extends Application {
         database.execSQL("DELETE FROM today_lunch");
         database.execSQL("DELETE FROM today_dinner");
         database.execSQL("DELETE FROM today_snack");
-
     }
 
+    public void delete_today_breakfast_data(){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        database.execSQL("DELETE FROM today_breakfast");
+    }
+
+    public void delete_today_lunch_data(){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        database.execSQL("DELETE FROM today_lunch");
+    }
+
+    public void delete_today_dinner_data(){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        database.execSQL("DELETE FROM today_dinner");
+    }
+
+    public void delete_today_snack_data(){
+        SQLiteDatabase database = helper.getWritableDatabase();
+        database.execSQL("DELETE FROM today_snack");
+    }
 
     public void addData_calories(String date, int breakfast_cal, int lunch_cal, int dinner_cal, int snack_cal){
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL("INSERT INTO date_calories(Date, Breakfast_cal, Lunch_cal, Dinner_cal, Snack_cal) " +
                 "VALUES(date+ ',' +breakfast_cal+ ',' +lunch_cal+ ',' +dinner_cal+ +snack_cal )");
 //                "VALUES('" + date + "','" + breakfast_cal +"' , ' ')" );
-
     }
 
     public Cursor getAllData_calories(){

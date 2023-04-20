@@ -21,6 +21,7 @@ public class FoodList extends AppCompatActivity {
     TextView textView;
     ImageButton btn_addFood;
     ImageButton btn_home;
+    ImageButton btn_delete;
     String today;
     String which_meal;
     TextView txt_food1;
@@ -38,25 +39,16 @@ public class FoodList extends AppCompatActivity {
         txt_cal1 = (TextView)findViewById(R.id.txt_cal1);
         btn_home = (ImageButton)findViewById(R.id.btn_home);
         btn_addFood = (ImageButton)findViewById(R.id.btn_addFood);
+        btn_delete = (ImageButton)findViewById(R.id.btn_delete);
 
-        // 현재 Intent 객체 가져오기
         Intent intent = getIntent();
-
-        // 데이터 추출
         which_meal = intent.getStringExtra("which_meal");
-
-
-
         textView.setText(which_meal);
 
         today = intent.getStringExtra("today");
 
-
-
         today_food = new ArrayList<>();
         today_calory = new ArrayList<>();
-
-
 
         if(which_meal.equals("breakfast")) {
             Cursor cursor = ((DatabaseHelper) getApplication()).getAllData_today_breakfast();
@@ -125,12 +117,34 @@ public class FoodList extends AppCompatActivity {
 
     public void click_homeBtn(View v){
         if(v == btn_home){
-            Intent foodSearchIntent = new Intent(this, MainActivity.class);
-
-            startActivity(foodSearchIntent);
+            Intent mainActivityIntend = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntend);
         }
     }
 
-// 추출한 데이터를 사용하여 작업 수행
+    public void click_deleteBtn(View v){
+        if(v == btn_delete){
+            if(which_meal.equals("breakfast")){
+                ((DatabaseHelper) getApplication()).delete_today_breakfast_data();
+                Intent mainActivityIntend = new Intent(this, MainActivity.class);
+                startActivity(mainActivityIntend);
+            }
+            else if(which_meal.equals("lunch")){
+                ((DatabaseHelper) getApplication()).delete_today_lunch_data();
+                Intent mainActivityIntend = new Intent(this, MainActivity.class);
+                startActivity(mainActivityIntend);
+            }
+            else if(which_meal.equals("dinner")){
+                ((DatabaseHelper) getApplication()).delete_today_dinner_data();
+                Intent mainActivityIntend = new Intent(this, MainActivity.class);
+                startActivity(mainActivityIntend);
+            }
+            else if(which_meal.equals("snack")){
+                ((DatabaseHelper) getApplication()).delete_today_snack_data();
+                Intent mainActivityIntend = new Intent(this, MainActivity.class);
+                startActivity(mainActivityIntend);
+            }
+        }
+    }
 
 }
