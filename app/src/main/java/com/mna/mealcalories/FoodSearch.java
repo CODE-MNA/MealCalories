@@ -79,16 +79,16 @@ public class FoodSearch extends AppCompatActivity {
         if(v == whiteBread_line){
 
             if(which_meal.equals("breakfast")){
-                ((DatabaseHelper)getApplication()).addData_today_breakfast("whiteBread", 75);
+                ((DatabaseHelper)getApplication()).addData_today_breakfast("whiteBread", 73);
             }
             if(which_meal.equals("lunch")){
-                ((DatabaseHelper)getApplication()).addData_today_lunch("whiteBread", 75);
+                ((DatabaseHelper)getApplication()).addData_today_lunch("whiteBread", 73);
             }
             if(which_meal.equals("dinner")){
-                ((DatabaseHelper)getApplication()).addData_today_dinner("whiteBread", 75);
+                ((DatabaseHelper)getApplication()).addData_today_dinner("whiteBread", 73);
             }
             if(which_meal.equals("snack")){
-                ((DatabaseHelper)getApplication()).addData_today_snack("whiteBread", 75);
+                ((DatabaseHelper)getApplication()).addData_today_snack("whiteBread", 73);
             }
 
             Intent foodListIntent = new Intent(this, FoodList.class);
