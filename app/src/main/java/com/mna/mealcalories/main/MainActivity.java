@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_cal_dinner;
     TextView txt_snack;
     TextView txt_cal_snack;
+    TextView calculated_cal;
     String today;
     int breakfast_cal_sum = 0;
     int lunch_cal_sum = 0;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         txt_cal_dinner = (TextView)findViewById(R.id.txt_cal_dinner);
         txt_snack = (TextView)findViewById(R.id.txt_snack);
         txt_cal_snack = (TextView)findViewById(R.id.txt_cal_snack);
+        calculated_cal = (TextView)findViewById(R.id.calculated_cal);
 
         today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             txt_cal_snack.setText(String.valueOf(snack_cal_sum));
         }
 
+        calculated_cal.setText(String.valueOf(breakfast_cal_sum + lunch_cal_sum + dinner_cal_sum +snack_cal_sum));
 
     }
 
