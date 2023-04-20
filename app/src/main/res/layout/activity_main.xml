@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.MainActivity"
-    android:background="@color/black">
+    android:background="@color/black"
+    android:id="@+id/main_act">
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -27,7 +28,7 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <TextView
+    <Button
         android:id="@+id/calculated_cal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
