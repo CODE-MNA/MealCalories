@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.mna.mealcalories.DatabaseHelper;
 import com.mna.mealcalories.FoodList;
 import com.mna.mealcalories.R;
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_cal_dinner;
     TextView txt_snack;
     TextView txt_cal_snack;
-    TextView calculated_cal;
+    TextView calculated_cal_;
+    Button calculated_cal;
     String today;
     int breakfast_cal_sum = 0;
     int lunch_cal_sum = 0;
@@ -46,7 +49,17 @@ public class MainActivity extends AppCompatActivity {
         txt_cal_dinner = (TextView)findViewById(R.id.txt_cal_dinner);
         txt_snack = (TextView)findViewById(R.id.txt_snack);
         txt_cal_snack = (TextView)findViewById(R.id.txt_cal_snack);
-        calculated_cal = (TextView)findViewById(R.id.calculated_cal);
+        calculated_cal = (Button) findViewById(R.id.calculated_cal);
+
+        calculated_cal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar.make(findViewById(R.id.main_act),"These are your total calories",Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
+        });
+
+        //
 
         today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
