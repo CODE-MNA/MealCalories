@@ -2,23 +2,30 @@ package com.mna.mealcalories.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.mna.mealcalories.CameraActivity;
 import com.mna.mealcalories.DatabaseHelper;
 import com.mna.mealcalories.FoodList;
 import com.mna.mealcalories.R;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     int lunch_cal_sum = 0;
     int dinner_cal_sum = 0;
     int snack_cal_sum = 0;
+
 
 //    public String tempMsg;
     @Override
@@ -64,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //
 
         today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
@@ -112,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void ClickBreakfast(View v){
 
         if(v == txt_breakfast || v == txt_cal_breakfast){
@@ -130,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
         if(v == txt_dinner || v == txt_cal_dinner){
             Intent foodListIntent = new Intent(this, FoodList.class);
             foodListIntent.putExtra("which_meal", "dinner");
-
             startActivity(foodListIntent);
         }
 
         if(v == txt_snack || v == txt_cal_snack){
             Intent foodListIntent = new Intent(this, FoodList.class);
-            foodListIntent.putExtra("which_meal", "snack");startActivity(foodListIntent);
+            foodListIntent.putExtra("which_meal", "snack");
+            startActivity(foodListIntent);
         }
 
     }
@@ -155,7 +164,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.item_camera:
                 Toast.makeText(this, "Item1 is selected", Toast.LENGTH_SHORT).show();
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent cameraIntend = new Intent(this, CameraActivity.class);
+                startActivity(cameraIntend);
                 return true;
             case R.id.item2:
                 Toast.makeText(this, "Item2 is selected", Toast.LENGTH_SHORT).show();
