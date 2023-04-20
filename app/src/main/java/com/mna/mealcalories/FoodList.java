@@ -47,8 +47,6 @@ public class FoodList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         foodList = new ArrayList<>();
 
-
-
         recyclerAdapter adapter = new recyclerAdapter(foodList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -133,8 +131,6 @@ public class FoodList extends AppCompatActivity {
             }
         }
     }
-
-
 
 
     public void click_addFoodBtn(View v){
