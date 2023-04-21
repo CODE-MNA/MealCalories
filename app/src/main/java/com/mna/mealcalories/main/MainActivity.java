@@ -4,12 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +33,7 @@ import com.mna.mealcalories.SettingsActivity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -118,6 +124,23 @@ public class MainActivity extends AppCompatActivity {
 
         calculated_cal.setText(String.valueOf(breakfast_cal_sum + lunch_cal_sum + dinner_cal_sum +snack_cal_sum));
 
+        // every 12am delete the today's database
+        Intent intent2 = new Intent(this, MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Calendar every12am = Calendar.getInstance();
+        every12am.setTimeInMillis(System.currentTimeMillis());
+        every12am.set(Calendar.HOUR_OF_DAY, 18);
+        every12am.set(Calendar.MINUTE, 45);
+        every12am.set(Calendar.SECOND, 0);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, every12am.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        String currentTime = dateFormat.format(calendar.getTime());
+        Log.d("Current Time", currentTime);
+        //calculated_cal.setText(currentTime);
     }
 
 
@@ -148,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
             foodListIntent.putExtra("which_meal", "snack");
             startActivity(foodListIntent);
         }
-
     }
 
     // menu
@@ -164,13 +186,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.item_camera:
-                Toast.makeText(this, "Item1 is selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Check your body by camera", Toast.LENGTH_SHORT).show();
 //                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 Intent cameraIntend = new Intent(this, CameraActivity.class);
                 startActivity(cameraIntend);
                 return true;
             case R.id.item_setting:
-                Toast.makeText(this, "Item2 is selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
                 Intent settingIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingIntent);
                 return true;
@@ -181,4 +203,14 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    static class MyReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Delete today's code
+//            ((DatabaseHelper) getApplication()).deleteTodayData();
+
+        }
+    }
+
 }
