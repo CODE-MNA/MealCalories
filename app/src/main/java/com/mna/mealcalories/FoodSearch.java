@@ -17,6 +17,7 @@ public class FoodSearch extends AppCompatActivity {
     String which_meal;
     TextView txt_foodSearch;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class FoodSearch extends AppCompatActivity {
         Intent intent = getIntent();
         today = intent.getStringExtra("today");
         which_meal = intent.getStringExtra("which_meal");
+//        txt_foodSearch.setText(today);
     }
 
     public void click_egg_line(View v){

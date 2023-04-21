@@ -118,10 +118,17 @@ public class DatabaseHelper extends Application {
 
     public void addData_calories(String date, int breakfast_cal, int lunch_cal, int dinner_cal, int snack_cal){
         SQLiteDatabase db = helper.getWritableDatabase();
-        db.execSQL("INSERT INTO date_calories(Date, Breakfast_cal, Lunch_cal, Dinner_cal, Snack_cal) " +
-                "VALUES(date+ ',' +breakfast_cal+ ',' +lunch_cal+ ',' +dinner_cal+ +snack_cal )");
-//                "VALUES('" + date + "','" + breakfast_cal +"' , ' ')" );
+        db.execSQL("INSERT INTO date_calories(Date, Breakfast_cal, Lunch_cal, Dinner_cal, Snack_cal) VALUES('"+ date +"','"+ breakfast_cal +"' , '"+ lunch_cal +"' , '"+ dinner_cal +"' , '"+snack_cal+"')" );
     }
+
+
+    public void update_data_calories_breakfast(String date, int breakfast_cal){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.execSQL("UPDATE date_calories SET Breakfast_cal = '"+breakfast_cal+"' WHERE Date = '"+date+"' ");
+    }
+
+
+
 
     public Cursor getAllData_calories(){
         String query = "SELECT * FROM date_calories";
@@ -130,4 +137,5 @@ public class DatabaseHelper extends Application {
         cursor = db.rawQuery(query, null);
         return cursor;
     }
+
 }
