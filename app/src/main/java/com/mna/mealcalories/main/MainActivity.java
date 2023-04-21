@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -117,6 +118,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         calculated_cal.setText(String.valueOf(breakfast_cal_sum + lunch_cal_sum + dinner_cal_sum +snack_cal_sum));
+
+
+
 
     }
 

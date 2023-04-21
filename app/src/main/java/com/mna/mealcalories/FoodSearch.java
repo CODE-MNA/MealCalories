@@ -2,11 +2,14 @@ package com.mna.mealcalories;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class FoodSearch extends AppCompatActivity {
 
@@ -44,7 +47,35 @@ public class FoodSearch extends AppCompatActivity {
         Intent intent = getIntent();
         today = intent.getStringExtra("today");
         which_meal = intent.getStringExtra("which_meal");
+
+        //Assigning views for animation
+        ArrayList<View> viewList = new ArrayList<View>();
+
+        viewList.add(egg_line);
+        viewList.add(milk_line);
+        viewList.add(whiteBread_line);
+        viewList.add(orangeJuice_line);
+        viewList.add(pepperoniPizza_line);
+        viewList.add(whiteRice_line);
+        viewList.add(spaghettiWithMeatballs_line);
+        viewList.add(grilledSalmon_line);
+        viewList.add(gardenSalad_line);
+
+        animate_views(viewList);
     }
+
+    public void animate_views(ArrayList<View> views){
+
+        for (int i = views.size()-1; i >= 0  ; i--)  {
+
+
+
+            ObjectAnimator animation = ObjectAnimator.ofFloat(views.get(i), "translationY", -400f);
+            animation.setDuration((i * 130));
+            animation.start();
+        }
+    }
+
 
     public void click_egg_line(View v){
         if(v == egg_line){

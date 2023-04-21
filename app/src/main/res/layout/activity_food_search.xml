@@ -27,15 +27,19 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintVertical_bias="0.31">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="144dp" />
 
         <LinearLayout
             android:id="@+id/egg_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_egg_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,16 +50,16 @@
                 android:id="@+id/txt_egg"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:text="Egg"
-                android:gravity="center|left" />
+                android:gravity="center|left"
+                android:text="Egg" />
 
             <TextView
                 android:id="@+id/txt_cal_egg"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="70 cals"
                 android:layout_gravity="right"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="70 cals" />
 
         </LinearLayout>
 
@@ -63,9 +67,9 @@
             android:id="@+id/milk_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:onClick="click_milk_line"
             android:background="@drawable/border"
+            android:onClick="click_milk_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,21 +82,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Milk" />
+
             <TextView
                 android:id="@+id/txt_cal_milk"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="149 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="149 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/whiteBread_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_whiteBread_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,21 +110,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="White bread" />
+
             <TextView
                 android:id="@+id/txt_cal_whiteBread"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="73 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="73 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/orangeJuice_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_orangeJuice_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -132,21 +138,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Orange juice" />
+
             <TextView
                 android:id="@+id/txt_cal_orangeJuice"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="112 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="112 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/pepperoniPizza_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_pepperoniPizza_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,21 +166,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Peperoni pizza" />
+
             <TextView
                 android:id="@+id/txt_cal_peperoniPizza"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="305 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="305 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/whiteRice_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_whiteRice_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -186,21 +194,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="White rice" />
+
             <TextView
                 android:id="@+id/txt_cal_whiteRice"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="242 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="242 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/spaghettiWithMeatballs_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_spaghettiWithMeatballs_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -213,21 +222,22 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Spaghetti with meatballs" />
+
             <TextView
                 android:id="@+id/txt_cal_spaghettiWithMeatballs"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="239 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="239 cals" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/grilledSalmon_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_grilledSalmon_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -240,12 +250,13 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Grilled salmon" />
+
             <TextView
                 android:id="@+id/txt_cal_grilledSalmon"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="210 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="210 cals" />
         </LinearLayout>
 
 
@@ -253,9 +264,9 @@
             android:id="@+id/gardenSalad_line"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal"
             android:background="@drawable/border"
             android:onClick="click_gardenSalad_line"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -268,12 +279,13 @@
                 android:layout_height="40dp"
                 android:gravity="center|left"
                 android:text="Garden salad" />
+
             <TextView
                 android:id="@+id/txt_cal_gardenSalad"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:text="160 cals"
-                android:gravity="center|right"/>
+                android:gravity="center|right"
+                android:text="160 cals" />
         </LinearLayout>
 
     </LinearLayout>
