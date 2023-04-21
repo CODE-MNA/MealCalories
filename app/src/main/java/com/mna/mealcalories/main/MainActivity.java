@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    static class MyReceiver extends BroadcastReceiver {
+    public static class MyReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             // Delete today's code
