@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Calendar every12am = Calendar.getInstance();
         every12am.setTimeInMillis(System.currentTimeMillis());
-        every12am.set(Calendar.HOUR_OF_DAY, 18);
-        every12am.set(Calendar.MINUTE, 45);
+        every12am.set(Calendar.HOUR_OF_DAY, 0);
+        every12am.set(Calendar.MINUTE, 0);
         every12am.set(Calendar.SECOND, 0);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, every12am.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
 
