@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
         // every 12am delete the today's database
         Intent intent2 = new Intent(this, MyReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent2, 0);
+        intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent2, PendingIntent.FLAG_MUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Calendar every12am = Calendar.getInstance();
         every12am.setTimeInMillis(System.currentTimeMillis());
